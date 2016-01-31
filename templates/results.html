@@ -1,0 +1,19 @@
+<div class="results">
+			<!--If there are no results-->
+			<div class="row">
+				<div class="toys col-md-4" ng-repeat="toy in toys" ng-cloak><!--JOS NGCLOAK-->
+					<h4>
+						<a ng-href="{{toy.url}}" target="_blank">{{toy.title}}</a>
+					</h4>
+					<a ng-href="{{toy.url}}" target="_blank"><img ng-src="{{toy.image}}" class="img-thumbnail"></a>
+					<p>Store:  <a ng-href="https://www.{{toy.rid}}.nl" target="_blank">{{toy.rid}}</a></p>
+					<p>Price: <strong>{{toy.price | num | currency}}</strong></p>
+				</div>
+			</div>
+			
+</div>
+
+		<div class="more-toys" ng-hide="allResults" ng-cloak> <!--JOS NGCLOAK-->
+			<button ng-click="loadMore()" class="btn btn-primary btn-block">More toys? :)</button>
+		</div>
+		<h2>HAHAH</h2>
