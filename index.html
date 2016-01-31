@@ -1,0 +1,98 @@
+<html>
+<head>
+	<title>Search engine for children</title>
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body ng-app="toySearch" ng-controller="toyCont">
+
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h1>ToySearch</h1>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<div style="position: relative; left: -150px;" ng-show="showResults">
+			<div style="position: fixed;  top: 450px">
+				<button class="btn btn-info" ng-click="showResults=!showResults"><span class="glyphicon glyphicon-circle-arrow-left"></span> Go back</button>
+			</div>
+		</div>
+		
+
+		<div class="col-md-12" ng-hide="showResults">
+			<div class="row logos">
+				<div class="col-md-3" ng-click="search('Lego'); showResults = 'true'">
+					<img src="./lego.png" class="img-circle" style="border-color: #F59314">
+					<h3>Lego</h3>
+				</div>
+				<div class="col-md-3" ng-click="search('spiderman batman avengers hulk super heroes iron man hot wheels'); showResults = 'true'"> <!--SPIDERMAN, BATMAN, AVENGERS, HULK, SUPER HEROES, -->
+					<img src="./avengers.jpg" class="img-circle" style="border-color: #FF3030">
+					<h3>Superheroes</h3>
+				</div>
+				<div class="col-md-3" ng-click="search('disney princess frozen elsa anna olaf cinderella'); showResults = 'true'">
+					<img src="./disney.jpg" class="img-circle" style="border-color: #F514E6">
+					<h3>Disney Characters</h3>
+				</div>
+				<div class="col-md-3" ng-click="search('puzzel'); showResults = 'true'">
+					<img src="./puzzle2.png" class="img-circle" style="border-color: #009999">
+					<h3>Puzzles</h3>
+				</div>
+				
+				
+				<div class="col-md-3" ng-click="search('ps4 nintendo wii zelda supermario mario kart witcher'); showResults = 'true'"> <!-- PS4, NINTENDO, ZELDA, SUPERMARIO, -->
+					<img src="./games.png" class="img-circle" style="border-color: #04C967">
+					<h3>Video Games</h3>
+				</div>
+				<div class="col-md-3" ng-click="search('barbie doll fashion baby'); showResults = 'true'"> <!-- BARBIE, ..-->
+					<img src="./doll.png" class="img-circle" style="border-color: #cc9900">
+					<h3>Dolls</h3>
+				</div>
+				<div class="col-md-3" ng-click="search('star wars jedi destroyer millenium'); showResults = 'true'">
+					<img src="./death-star.png" class="img-circle" style="border-color: #0099ff">
+					<h3>Star Wars</h3>
+				</div>			
+				<div class="col-md-3" ng-click="search('monopoly carcassonne domino board games memory'); showResults = 'true'"> <!--!!!!!!!!!!!!!!!!!!!! MONOPOLY, CARCASSONNE, DOMINO, BOARD GAMES, MEMORY -->
+					<img src="./board.png" class="img-circle" style="border-color: #e5e600">
+					<h3>Board games</h3>
+				</div>
+			</div>
+		</div>
+
+		<div id="results" ng-show="showResults">
+			<div class="results">
+				<!--If there are no results-->
+				<div class="row">
+					<div class="toys col-md-4" ng-repeat="toy in toys" ng-cloak><!--JOS NGCLOAK-->
+						<h4>
+							<a ng-href="{{toy.url}}" target="_blank">{{toy.title}}</a>
+						</h4>
+						<a ng-href="{{toy.url}}" target="_blank"><img ng-src="{{toy.image}}" class="img-thumbnail"></a>
+						<p>Store:  <a ng-href="https://www.{{toy.rid}}.nl" target="_blank">{{toy.rid}}</a></p>
+						<p>Price: <strong>{{toy.price | num | currency}}</strong></p>
+					</div>
+				</div>			
+			</div>
+
+			<div class="more-toys" ng-hide="allResults" ng-cloak> <!--JOS NGCLOAK-->
+				<button ng-click="loadMore()" class="btn btn-primary btn-block">More toys? :)</button>
+			</div>
+		</div>
+		
+	</div>
+
+
+<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="./bower_components/elasticsearch/elasticsearch.angular.js"></script>
+<script type="text/javascript" src="./node_modules/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="./js/app.js"></script>
+<script type="text/javascript" src="./js/controller2.js"></script>
+<script type="text/javascript" src="./js/service.js"></script>
+</body>
+</html>
