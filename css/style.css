@@ -1,0 +1,48 @@
+#formDiv{
+	margin: 25px 0;
+}
+
+.buttonDiv{
+	padding-left: 0;
+}
+
+.inputDiv{
+	padding-right: 0;
+	margin: 3px 0;
+}
+
+img{
+	height: 190px;
+	width: 190px;
+}
+
+h4{
+	height: 40px;
+}
+
+p strong{
+	font-size: 16px;
+}
+
+.toys{
+	margin-bottom: 30px;
+}
+
+.logos{
+	text-align: center;
+}
+
+.logos div{
+	margin: 27px 0;
+}
+
+.logos img{
+	padding: 4px;
+	height: 170px;
+	width: 170px;
+	border: 2px solid black;
+}
+
+.more-toys{
+	margin: 40px 0;
+}
